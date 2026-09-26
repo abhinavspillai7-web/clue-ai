@@ -16,6 +16,8 @@ class knowledge_base:
     def eliminate_owners(self,cards,owners):
         if owners in self.possible_owners[cards]:
             self.possible_owners[cards].remove(owners)
+            if len(self.possible_owners[cards])==0:
+                raise Exception("no possible owners remain")
 
 class Fact :
     def __init__(self,fact_id,suggestor,responder,suggested_cards,response,shown_card,timestamp):
